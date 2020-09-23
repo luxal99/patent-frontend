@@ -1,16 +1,20 @@
-<div class="work-order-div">
-    <div class="row">
-        <div class="col-sm">
-            <h1>Kategorije</h1>
+
+<mat-tab-group mat-stretch-tab animationDuration="300ms">
+    <mat-tab label="Dodaj & Danas"> <div class="work-order-div">
+        <div class="row">
+            <div class="col-sm">
+                <h1>Kategorije</h1>
+            </div>
+            <div class="col-sm text-right">
+                <button class="add-btn" (click)="openAddWorkOrderDialog()">Dodaj nalog</button>
+                
+            </div>
+         
+        <div>
+           
         </div>
-        <div class="col-sm text-right">
-            <button class="add-btn" (click)="openAddWorkOrderDialog()">Dodaj kategoriju</button>
-            
+        
         </div>
-     
-    <div>
-       
-    </div>
-    
-    </div>
-</div>
+    </div> </mat-tab>
+    <mat-tab label="Istorija"> Content 2 </mat-tab>
+  </mat-tab-group>
