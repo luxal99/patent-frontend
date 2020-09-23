@@ -18,3 +18,15 @@
     padding-left: 2em;
     padding-right: 2em;
 }
+.manufacturer{
+    background-color: #f3f4f7;
+
+    -webkit-box-shadow: 10px 10px 42px -18px rgba(0,0,0,0.75);
+    -moz-box-shadow: 10px 10px 42px -18px rgba(0,0,0,0.75);
+    box-shadow: 10px 10px 42px -18px rgba(0,0,0,0.75);
+    padding: 1em;
+}
+h5,h1{
+
+    font-family: 'Poppins', sans-serif;
+}

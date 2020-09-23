@@ -21,7 +21,7 @@ export class CategoryComponent implements OnInit {
 
   @ViewChild('toggle', { static: false }) toggle: MatSlideToggle;
   
-  @ViewChild('toggle', { static: false }) toggleSubCat: MatSlideToggle;
+  @ViewChild('toggleSubCat', { static: false }) toggleSubCat: MatSlideToggle;
 
   constructor(private dialog: MatDialog,private subCategoryService:SubCategoryService, private categoryService: CategoryService) { }
 
@@ -40,7 +40,7 @@ export class CategoryComponent implements OnInit {
   }
 
   hideSubCategory() {
-    if (!this.toggle.checked) {
+    if (!this.toggleSubCat.checked) {
       document.getElementById("sub-category").style.display = 'none'
     } else {
       document.getElementById("sub-category").style.display = 'block'
