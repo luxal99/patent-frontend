@@ -9,12 +9,16 @@ import { MaterialModule } from './material.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AdminComponent } from './admin/admin.component';
 import { HttpClientModule } from '@angular/common/http';
+import { CategoryComponent } from './admin/category/category.component';
+import { ProductComponent } from './admin/product/product.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    AdminComponent
+    AdminComponent,
+    CategoryComponent,
+    ProductComponent
   ],
   imports: [
     BrowserModule,
