@@ -23,6 +23,12 @@ export class AdminComponent implements OnInit {
     this.entry.createComponent(factory);
   }
 
+  async loadManufacturer (){
+    this.entry.clear();
+    const { ManufacturerComponent } = await import('./manufacturer/manufacturer.component');
+    const factory = this.resolver.resolveComponentFactory(ManufacturerComponent)
+    this.entry.createComponent(factory);
+  }
   async loadProduct (){
     this.entry.clear();
     const { ProductComponent } = await import('./product/product.component');

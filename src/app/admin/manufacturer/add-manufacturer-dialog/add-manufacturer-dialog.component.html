@@ -1,0 +1,13 @@
+<div class="add-category-div">
+    <form [formGroup]="addManufacturerForm">
+        <div>
+            <mat-form-field appearance="fill">
+                <mat-label>Naziv kategorije</mat-label>
+                <input formControlName="title" matInput >
+              </mat-form-field>
+        </div>
+        <div class="text-center">
+            <button class="add-btn" (click)="add()" mat-dialog-close>Dodaj</button>
+        </div>
+    </form>
+</div>

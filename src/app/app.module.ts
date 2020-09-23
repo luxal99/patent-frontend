@@ -13,6 +13,8 @@ import { CategoryComponent } from './admin/category/category.component';
 import { ProductComponent } from './admin/product/product.component';
 import { AddCategoryDialogComponent } from './admin/category/add-category-dialog/add-category-dialog.component';
 import { AddSubCategoryDialogComponent } from './admin/category/add-sub-category-dialog/add-sub-category-dialog.component';
+import { ManufacturerComponent } from './admin/manufacturer/manufacturer.component';
+import { AddManufacturerDialogComponent } from './admin/manufacturer/add-manufacturer-dialog/add-manufacturer-dialog.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { AddSubCategoryDialogComponent } from './admin/category/add-sub-category
     CategoryComponent,
     ProductComponent,
     AddCategoryDialogComponent,
-    AddSubCategoryDialogComponent
+    AddSubCategoryDialogComponent,
+    ManufacturerComponent,
+    AddManufacturerDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -33,7 +37,7 @@ import { AddSubCategoryDialogComponent } from './admin/category/add-sub-category
     AppRoutingModule
   ],
   providers: [],
-  entryComponents:[CategoryComponent,ProductComponent,AddCategoryDialogComponent,AddSubCategoryDialogComponent],
+  entryComponents:[CategoryComponent,AddManufacturerDialogComponent,ProductComponent,ManufacturerComponent,AddCategoryDialogComponent,AddSubCategoryDialogComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
