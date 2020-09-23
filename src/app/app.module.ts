@@ -19,6 +19,8 @@ import { AddProductDialogComponent } from './admin/product/add-product-dialog/ad
 import { MatIconModule } from '@angular/material';
 import { ProductMoreDialogComponent } from './admin/product/product-more-dialog/product-more-dialog.component';
 import { EditProductDialogComponent } from './admin/product/edit-product-dialog/edit-product-dialog.component';
+import { WorkOrderComponent } from './admin/work-order/work-order.component';
+import { AddWorkOrderDialogComponent } from './admin/work-order/add-work-order-dialog/add-work-order-dialog.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +35,9 @@ import { EditProductDialogComponent } from './admin/product/edit-product-dialog/
     AddManufacturerDialogComponent,
     AddProductDialogComponent,
     ProductMoreDialogComponent,
-    EditProductDialogComponent
+    EditProductDialogComponent,
+    WorkOrderComponent,
+    AddWorkOrderDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -45,7 +49,7 @@ import { EditProductDialogComponent } from './admin/product/edit-product-dialog/
     AppRoutingModule
   ],
   providers: [],
-  entryComponents:[AddProductDialogComponent,EditProductDialogComponent,ProductMoreDialogComponent,CategoryComponent,AddManufacturerDialogComponent,ProductComponent,ManufacturerComponent,AddCategoryDialogComponent,AddSubCategoryDialogComponent],
+  entryComponents:[AddProductDialogComponent,AddWorkOrderDialogComponent,WorkOrderComponent,EditProductDialogComponent,ProductMoreDialogComponent,CategoryComponent,AddManufacturerDialogComponent,ProductComponent,ManufacturerComponent,AddCategoryDialogComponent,AddSubCategoryDialogComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

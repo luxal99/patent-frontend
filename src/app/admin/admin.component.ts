@@ -23,10 +23,10 @@ export class AdminComponent implements OnInit {
     this.entry.createComponent(factory);
   }
 
-  async loadManufacturer (){
+  async loadWorkOrder (){
     this.entry.clear();
-    const { ManufacturerComponent } = await import('./manufacturer/manufacturer.component');
-    const factory = this.resolver.resolveComponentFactory(ManufacturerComponent)
+    const { WorkOrderComponent } = await import('./work-order/work-order.component');
+    const factory = this.resolver.resolveComponentFactory(WorkOrderComponent)
     this.entry.createComponent(factory);
   }
   async loadProduct (){

@@ -31,25 +31,25 @@ export class EditProductDialogComponent implements OnInit {
     code: new FormControl("", Validators.required)
   })
 
-  constructor(@Inject(MAT_DIALOG_DATA) public data: any,private subCategoryService: SubCategoryService, private productService: ProductService, private manufacturerService: ManufacturerService) { }
+  constructor(@Inject(MAT_DIALOG_DATA) public data: any, private subCategoryService: SubCategoryService, private productService: ProductService, private manufacturerService: ManufacturerService) { }
 
   ngOnInit() {
     console.log(this.data);
 
     this.setValue();
-    
+
     this.getAllManufacturers();
     this.getAllSubCategories();
   }
 
-  setValue(){
+  setValue() {
     this.editProductForm.get("title").setValue(this.data.title);
     this.editProductForm.get("amount").setValue(this.data.amount);
     this.editProductForm.get("code").setValue(this.data.code);
     this.editProductForm.get("idManufacturer").setValue(this.data.idManufacturer);
     this.editProductForm.get("price").setValue(this.data.price);
     this.editProductForm.get("title").setValue(this.data.title);
-    
+
   }
 
   getAllSubCategories() {
@@ -64,8 +64,8 @@ export class EditProductDialogComponent implements OnInit {
     })
   }
 
-  update(){
-    
+  update() {
+
     var product = new Product();
 
     product.id = this.data.id
@@ -76,9 +76,9 @@ export class EditProductDialogComponent implements OnInit {
     product.idManufacturer = this.editProductForm.get("idManufacturer").value;
     product.code = this.editProductForm.get("code").value;
 
-    this.productService.update(product).subscribe(resp=>{
+    this.productService.update(product).subscribe(resp => {
       console.log(resp);
-      
+
     })
   }
 }
