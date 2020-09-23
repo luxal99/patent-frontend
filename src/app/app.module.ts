@@ -11,6 +11,8 @@ import { AdminComponent } from './admin/admin.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CategoryComponent } from './admin/category/category.component';
 import { ProductComponent } from './admin/product/product.component';
+import { AddCategoryDialogComponent } from './admin/category/add-category-dialog/add-category-dialog.component';
+import { AddSubCategoryDialogComponent } from './admin/category/add-sub-category-dialog/add-sub-category-dialog.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { ProductComponent } from './admin/product/product.component';
     LoginComponent,
     AdminComponent,
     CategoryComponent,
-    ProductComponent
+    ProductComponent,
+    AddCategoryDialogComponent,
+    AddSubCategoryDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -29,7 +33,7 @@ import { ProductComponent } from './admin/product/product.component';
     AppRoutingModule
   ],
   providers: [],
-  entryComponents:[CategoryComponent,ProductComponent],
+  entryComponents:[CategoryComponent,ProductComponent,AddCategoryDialogComponent,AddSubCategoryDialogComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
