@@ -18,6 +18,10 @@ export class FactoryService<T> {
     return this.http.get(`/${this.route}/` + id, { responseType: 'json' })
   }
 
+  update(entity:T){
+    return this.http.put(`/${this.route}`,entity,{responseType:'text'})
+  }
+
   getAll() {
     return this.http.get(`/${this.route}`, { responseType: 'json' });
   }

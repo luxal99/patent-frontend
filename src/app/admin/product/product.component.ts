@@ -3,6 +3,7 @@ import { MatDialog } from '@angular/material';
 import { Product } from 'src/models/Product';
 import { ProductService } from 'src/service/product.service';
 import { AddProductDialogComponent } from './add-product-dialog/add-product-dialog.component';
+import { EditProductDialogComponent } from './edit-product-dialog/edit-product-dialog.component';
 import { ProductMoreDialogComponent } from './product-more-dialog/product-more-dialog.component';
 
 @Component({
@@ -41,6 +42,17 @@ export class ProductComponent implements OnInit {
       minWidth: '10%',
       position: { right: '0' },
       height: '100vh',
+      data: produdct
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      this.getAllProducts();
+    });
+  }
+
+  openEditProductDialog(produdct): void {
+    const dialogRef = this.dialog.open(EditProductDialogComponent, {
+      width: '20%',
       data: produdct
     });
 

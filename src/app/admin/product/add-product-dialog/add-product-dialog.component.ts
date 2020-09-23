@@ -29,7 +29,7 @@ export class AddProductDialogComponent implements OnInit {
     idManufacturer: new FormControl("", Validators.required),
     code: new FormControl("", Validators.required)
   })
-  constructor(private subCategoryService: SubCategoryService, private productService: ProductService, private manufacturerService: ManufacturerService) { }
+    constructor(private subCategoryService: SubCategoryService, private productService: ProductService, private manufacturerService: ManufacturerService) { }
 
   ngOnInit() {
 

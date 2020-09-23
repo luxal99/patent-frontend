@@ -1,1 +1,60 @@
-<p>edit-product-dialog works!</p>
+<div class="product">
+    <form [formGroup]="editProductForm">
+        <h5>Podaci o proizvodu</h5>
+        <div>
+            <mat-form-field appearance="fill">
+                <mat-label>Naziv proizvoda</mat-label>
+                <input formControlName="title" matInput >
+              </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field appearance="fill">
+                <mat-label>Sifra</mat-label>
+                <input formControlName="code" matInput >
+              </mat-form-field>
+        </div>
+        <div style="padding-top: 2em;">
+            <h5>Podaci o ceni i kolicni</h5>
+            <div>
+                <mat-form-field appearance="fill">
+                    <mat-label>Kolicina</mat-label>
+                    <input formControlName="amount" matInput >
+                  </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field appearance="fill">
+                    <mat-label>Cena</mat-label>
+                    <input formControlName="price" matInput >
+                  </mat-form-field>
+            </div>
+        </div>
+<div style="padding-top: 2em;">
+    <div>
+
+   <h5>Kategorija i brend</h5>
+        <mat-form-field appearance="fill"> 
+            <mat-label>Izaberi potkadtegoriju</mat-label>
+            <mat-select  formControlName="idSubCategory" >
+              <mat-option *ngFor="let subCategory of listOfSubCategories" [value]="subCategory">
+                {{subCategory.title}}
+              </mat-option>
+            </mat-select>
+        </mat-form-field>
+      </div>
+      <div>
+          <mat-form-field appearance="fill"> 
+              <mat-label>Izaberi proizvodjaca</mat-label>
+              <mat-select  formControlName="idManufacturer" >
+                <mat-option *ngFor="let manufacturer of listOfManufacturers" [value]="manufacturer">
+                  {{manufacturer.title}}
+                </mat-option>
+              </mat-select>
+          </mat-form-field>
+        </div>
+
+        <div class="text-center">
+            <button class="add-btn" (click)="update()" [disabled]="!editProductForm.valid">Izmeni</button>
+        </div>
+</div>
+    </form>
+</div>

@@ -45,7 +45,7 @@ import { EditProductDialogComponent } from './admin/product/edit-product-dialog/
     AppRoutingModule
   ],
   providers: [],
-  entryComponents:[AddProductDialogComponent,ProductMoreDialogComponent,CategoryComponent,AddManufacturerDialogComponent,ProductComponent,ManufacturerComponent,AddCategoryDialogComponent,AddSubCategoryDialogComponent],
+  entryComponents:[AddProductDialogComponent,EditProductDialogComponent,ProductMoreDialogComponent,CategoryComponent,AddManufacturerDialogComponent,ProductComponent,ManufacturerComponent,AddCategoryDialogComponent,AddSubCategoryDialogComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
