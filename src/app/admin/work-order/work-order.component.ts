@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material';
 import { WorkOrder } from 'src/models/WorkOrder';
 import { WorkOrderService } from 'src/service/work-order.service';
+import { AddItemsDialogComponent } from './add-items-dialog/add-items-dialog.component';
 import { AddWorkOrderDialogComponent } from './add-work-order-dialog/add-work-order-dialog.component';
 
 @Component({
@@ -51,6 +52,15 @@ export class WorkOrderComponent implements OnInit {
     })
   }
 
+  openAddItems(){
+    const dialogRef = this.dialog.open(AddItemsDialogComponent, {
+      width: 'auto'
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+    });
+  }
+  
   openAddWorkOrderDialog() {
     const dialogRef = this.dialog.open(AddWorkOrderDialogComponent, {
       width: 'auto'

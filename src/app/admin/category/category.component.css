@@ -4,9 +4,7 @@ h1{
 }
 
 .category-div{
-    padding-top: 5em;
-    padding-left: 2em;
-    padding-right: 2em;
+    padding: 5em 2em 5em 2em;
 }
 
 .add-category-btn{
@@ -27,9 +25,7 @@ h1{
 .category-item{
     padding: 1em;
     margin-top: 2em;
-    -webkit-box-shadow: 10px 10px 42px -18px rgba(0,0,0,0.75);
-    -moz-box-shadow: 10px 10px 42px -18px rgba(0,0,0,0.75);
-    box-shadow: 10px 10px 42px -18px rgba(0,0,0,0.75);
+    background-color: #f3f4f7;
 }
 
 .category-div h3 {
