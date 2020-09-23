@@ -1,1 +1,29 @@
-<p>login works!</p>
+<div class="login-div">
+  <div class="container">
+    <div class="row">
+        <div class="col-sm"></div>
+        <div class="col-sm login-col text-center">
+            <img src="../../assets/img/zviz6vtxs1a3xbscxbmu.png" alt="" class="img-fluid">
+            <form [formGroup]="loginForm">
+                <div>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Username</mat-label>
+                        <input formControlName="username" matInput >
+                      </mat-form-field>
+                </div>
+                <div>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Password</mat-label>
+                        <input matInput type="password" formControlName="password">
+                      </mat-form-field>
+                </div>
+
+                <div class="text-center">
+                    <button class="login-btn" (click)="auth()">Login</button>
+                </div>
+            </form>
+        </div>
+        <div class="col-sm"></div>
+    </div>
+  </div>
+</div>
