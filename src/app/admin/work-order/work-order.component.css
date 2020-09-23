@@ -18,5 +18,9 @@ h1{
     font-family: 'Poppins', sans-serif;
 }
 .work-order-div{
-    padding: 5em 2em 5em 2em;
+    padding: 5em 2em 0em 2em;
+}
+h5{
+    font-weight: bold;
+    font-family: 'Poppins', sans-serif;
 }
