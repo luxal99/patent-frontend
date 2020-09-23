@@ -5,17 +5,78 @@
         </div>
         <div class="col-sm text-right">
             <button class="add-category-btn" (click)="openAddCategoryDialog()">Dodaj kategoriju</button>
+            <div>
+                <mat-slide-toggle #toggle (click)="hideCategory()">Prekrij kategorije</mat-slide-toggle>
+            </div>
+        </div>
+     
+   <div>
+       
+   </div>
+
+    </div>
+
+    <div class="category-binding" id="category">
+        <div class="row">
+            <div class="col-sm-3">
+                <h3>Naziv</h3>
+        </div>
+            <div class="col-sm-3">
+                <h3>Broj potkategorija</h3></div>
+        </div>
+        
+        <div class="category-item" *ngFor="let category of listOfCategories">
+            <div class="row">
+                <div class="col-sm-3">
+                    <h4>{{category.title}}</h4>
+                </div>
+                <div class="col-sm-3">
+                    <h4>{{category.listOfSubCategories.length}}</h4>
+                </div>
+            </div>
         </div>
     </div>
 </div>
 
 <div class="category-div">
+    
     <div class="row">
         <div class="col-sm">
             <h1>Potkategorije</h1>
         </div>
         <div class="col-sm text-right">
             <button class="add-category-btn" (click)="openAddSubCategoryDialog()">Dodaj potkategoriju</button>
+            <div>
+                <mat-slide-toggle #toggleSubCat (click)="hideSubCategory()">Prekrij kategorije</mat-slide-toggle>
+            </div>
+        </div>
+    
+    </div>
+
+
+   
+    <div class="category-binding" id="sub-category">
+        <div class="row">
+            <div class="col-sm-3">
+    
+                        <h3>Naziv potkategodije</h3>
+            </div>
+            <div class="col-sm-3">
+    
+                <h3>Broj potkategorija</h3>
+            </div>
+        </div>
+
+    
+        <div class="category-item" *ngFor="let subCategory of listOfSubCategories">
+            <div class="row">
+                <div class="col-sm-3">
+                    <h4>{{subCategory.title}}</h4>
+                </div>
+                <div class="col-sm-3">
+                    <h4>{{subCategory.idCategory.title}}</h4>
+                </div>
+            </div>
         </div>
     </div>
 </div>

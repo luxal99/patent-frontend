@@ -23,3 +23,33 @@ h1{
     padding-bottom: .5em;
     margin-bottom: 2em;
 }
+
+.category-item{
+    padding: 1em;
+    margin-top: 2em;
+    -webkit-box-shadow: 10px 10px 42px -18px rgba(0,0,0,0.75);
+    -moz-box-shadow: 10px 10px 42px -18px rgba(0,0,0,0.75);
+    box-shadow: 10px 10px 42px -18px rgba(0,0,0,0.75);
+}
+
+.category-div h3 {
+    
+    font-family: 'Poppins', sans-serif;
+}
+.category-div h4{
+font-weight: bold;
+    font-family: 'Poppins', sans-serif;
+}
+
+::ng-deep.mat-slide-toggle.mat-checked .mat-slide-toggle-bar{
+    background-color: #54347c !important;
+}
+
+::ng-deep.mat-slide-toggle.mat-checked .mat-slide-toggle-thumb {
+    background-color: #8dc63f;
+}
+
+mat-slide-toggle{
+    
+    font-family: 'Poppins', sans-serif;
+}
