@@ -1,0 +1,11 @@
+[{
+    "context": [
+        "/user",
+        "/category",
+        "/subCategory",
+        "/manufacturer",
+        "/product"
+    ],
+    "target": "http://localhost:3000",
+    "secure": false
+}]
