@@ -9,7 +9,7 @@ export class CategoryComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {
+ async ngOnInit(): Promise<void> {
   }
 
 }

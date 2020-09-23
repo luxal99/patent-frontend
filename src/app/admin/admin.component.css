@@ -1,14 +1,49 @@
-mat-drawer{
+mat-drawer {
     width: 20%;
     background-color: #54347c
 }
 
-.logo-div{padding-top: 5em;
+.logo-div {
+    padding-top: 5em;
 }
-.fa-bars{
+
+.fa-bars {
     font-size: 30px;
 }
 
-.menu-btn{
+.menu-btn {
     padding-top: 1em;
+}
+
+.menu-div {
+    padding-top: 2em;
+}
+
+.component-link-div{
+    padding: 1em;
+}
+
+.component-link:hover{
+    background-color: #8dc63f;
+    transition: .5s ease;
+}
+
+h5{
+    text-transform: uppercase;
+    font-weight: bold;
+    
+    font-family: 'Poppins', sans-serif;
+    border-left: 5px solid #8dc63f;
+    color: #fff;
+    padding: 1em;
+}
+
+h5:hover {
+    background-color: #fff;
+    color: #121212;
+    transition: .5s ease;
+}
+
+a:hover{
+    text-decoration: none;
 }

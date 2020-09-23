@@ -29,6 +29,7 @@ import { ProductComponent } from './admin/product/product.component';
     AppRoutingModule
   ],
   providers: [],
+  entryComponents:[CategoryComponent,ProductComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

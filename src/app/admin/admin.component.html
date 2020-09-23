@@ -3,11 +3,24 @@
         <div class="logo-div text-center">
             <img src="../../assets/img/logo.png" width="200px" alt="" class="img-fluid">
         </div>
+
+        <div class="menu-div">
+            <div class="component-link-div">
+                <a class="component-link" (click)="loadCategory()">
+                    <h5>Kategorije / Potkategorije</h5>
+                </a>
+            </div>
+            <div class="component-link-div">
+                <a class="component-link" (click)="loadProduct()">
+                    <h5>Proizvodi</h5>
+                </a>
+            </div>
+        </div>
     </mat-drawer>
     <mat-drawer-content>
      <div class="menu-btn">
-
-      <button mat-button (click)="drawer.toggle()"><i class="fa fa-bars"></i></button>
+    <button mat-button (click)="drawer.toggle()"><i class="fa fa-bars"></i></button>
+    <div #target></div>
      </div>
     </mat-drawer-content>
   </mat-drawer-container>
