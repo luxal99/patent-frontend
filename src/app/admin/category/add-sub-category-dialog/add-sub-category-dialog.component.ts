@@ -35,7 +35,7 @@ export class AddSubCategoryDialogComponent implements OnInit {
   add(){
 
     this.subCategoryService.save(new SubCategory(
-      this.addSubCategoryForm.get("title").value,this.addSubCategoryForm.get("idCategory").value
+      this.addSubCategoryForm.get("titile").value,this.addSubCategoryForm.get("idCategory").value
     )).subscribe(resp=>{
       console.log(resp);
       

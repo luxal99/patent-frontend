@@ -1,0 +1,32 @@
+.add-product-btn {
+    font-family: 'Poppins', sans-serif;
+    background-color: #8dc63f;
+    border-radius: 3px;
+    border: 1px solid #8dc63f;
+    -webkit-box-shadow: 10px 10px 42px -18px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 10px 10px 42px -18px rgba(0, 0, 0, 0.75);
+    box-shadow: 10px 10px 42px -18px rgba(0, 0, 0, 0.75);
+    font-size: 20px;
+    width: 20%;
+    padding-top: .5em;
+    padding-bottom: .5em;
+    margin-bottom: 2em;
+}
+
+.product-div {
+    padding: 2em;
+}
+
+.header{
+    padding-bottom: 2em;
+}
+h5{
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+    padding-top: .5em;
+}
+.product-row {
+    padding: 1em;
+    background-color: #f3f4f7;
+}
+
