@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material';
+import { WorkOrder } from 'src/models/WorkOrder';
+import { WorkOrderService } from 'src/service/work-order.service';
 import { AddWorkOrderDialogComponent } from './add-work-order-dialog/add-work-order-dialog.component';
 
 @Component({
@@ -9,12 +11,47 @@ import { AddWorkOrderDialogComponent } from './add-work-order-dialog/add-work-or
 })
 export class WorkOrderComponent implements OnInit {
 
-  constructor(private dialog:MatDialog) { }
+  listOfWorkOrders: Array<WorkOrder> = [];
 
-  async ngOnInit():Promise<void> {
+  currentWorkOrder:WorkOrder;
+
+  constructor(private dialog: MatDialog, private workOrderService: WorkOrderService) { }
+
+  async ngOnInit(): Promise<void> {
+    this.getAllWorkOrders();
+    this.getCurrentWorkOrder();
   }
 
-  openAddWorkOrderDialog(){
+  getAllWorkOrders() {
+    this.workOrderService.getAll().subscribe(resp => {
+      this.listOfWorkOrders = resp as Array<WorkOrder>
+
+      localStorage.setItem("workOrders",JSON.stringify(resp))
+    })
+  }
+
+  getCurrentWorkOrder(){
+    var date = new Date();
+
+    this.listOfWorkOrders = JSON.parse(localStorage.getItem("workOrders"))
+    
+    console.log(this.listOfWorkOrders);
+    
+    this.listOfWorkOrders.forEach(workOrder =>{
+      let workOrderDate = new Date(workOrder.date)
+
+      let dateSum = date.getDate() + date.getMonth() + date.getFullYear()
+      let workOrderDateSum = workOrderDate.getDate() + workOrderDate.getMonth() + workOrderDate.getFullYear()
+      
+      if(workOrderDateSum === dateSum){
+        this.currentWorkOrder = workOrder
+      }
+
+        
+    })
+  }
+
+  openAddWorkOrderDialog() {
     const dialogRef = this.dialog.open(AddWorkOrderDialogComponent, {
       width: 'auto'
     });

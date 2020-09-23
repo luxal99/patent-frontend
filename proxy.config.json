@@ -4,7 +4,8 @@
         "/category",
         "/subCategory",
         "/manufacturer",
-        "/product"
+        "/product",
+        "/workOrder"
     ],
     "target": "http://localhost:3000",
     "secure": false

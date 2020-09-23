@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { WorkOrder } from 'src/models/WorkOrder';
+import { WorkOrderService } from 'src/service/work-order.service';
 
 @Component({
   selector: 'app-add-work-order-dialog',
@@ -13,33 +15,34 @@ export class AddWorkOrderDialogComponent implements OnInit {
     date: new FormControl("", Validators.required)
   })
 
-  constructor() { }
+  constructor(private workOrderService: WorkOrderService) { }
 
   ngOnInit() {
   }
 
   add() {
-    
-    var date = new Date();
-    var formDate = new Date();
 
-    formDate = this.workOrderForm.get("date").value;
+    // var date = new Date();
+    // var formDate = new Date();
 
-    var x = date.getDate()+date.getMonth()+date.getFullYear();
-    var y = formDate.getDate()+formDate.getMonth()+formDate.getFullYear();
-    
+    // formDate = this.workOrderForm.get("date").value;
 
-    if(x === y){
+    // var x = date.getDate() + date.getMonth() + date.getFullYear();
+    // var y = formDate.getDate() + formDate.getMonth() + formDate.getFullYear();
 
-      console.log(true);
-      
-    }else{
-        console.log(false);
-        
-    }
-    
-      
 
+    // if (x === y) {
+    //   console.log(true);
+    // } else {
+    //   console.log(false);
+    // }
+
+    let workOrder = new WorkOrder(String(this.workOrderForm.get("date").value));
+
+    this.workOrderService.save(workOrder).subscribe(resp => {
+      console.log(resp);
+
+    })
   }
 
 }
