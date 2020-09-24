@@ -30,12 +30,10 @@ export class WorkOrderComponent implements OnInit {
   }
 
   getAllWorkOrders() {
-
-      this.workOrderService.getAll().subscribe(resp => {
-        this.listOfWorkOrders = resp as Array<WorkOrder>
-        localStorage.setItem("workOrders", JSON.stringify(resp))
-      })
-    
+    this.workOrderService.getAll().subscribe(resp => {
+      this.listOfWorkOrders = resp as Array<WorkOrder>
+      localStorage.setItem("workOrders", JSON.stringify(resp))
+    })
   }
 
   getWorkOrderWithProducts() {
@@ -58,7 +56,7 @@ export class WorkOrderComponent implements OnInit {
 
     this.listOfWorkOrders = JSON.parse(localStorage.getItem("workOrders"))
 
-
+    if (this.listOfWorkOrders !== null) {
       this.listOfWorkOrders.forEach(workOrder => {
         let workOrderDate = new Date(workOrder.date)
 
@@ -72,7 +70,8 @@ export class WorkOrderComponent implements OnInit {
 
 
       })
-    
+    }
+
   }
 
   // Pazar
@@ -94,9 +93,11 @@ export class WorkOrderComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      this.getAllWorkOrders();
+       this.getAllWorkOrders();
+      setTimeout(() => {
+
       this.getCurrentWorkOrder();
-      this.hasCurrentWorkOrder = true;
+      }, 200);
     });
   }
 
