@@ -1,26 +1,69 @@
-.add-btn{
+.add-btn {
     font-family: 'Poppins', sans-serif;
     background-color: #8dc63f;
     border-radius: 3px;
     border: 1px solid #8dc63f;
-    -webkit-box-shadow: 10px 10px 42px -18px rgba(0,0,0,0.75);
-    -moz-box-shadow: 10px 10px 42px -18px rgba(0,0,0,0.75);
-    box-shadow: 10px 10px 42px -18px rgba(0,0,0,0.75);
+    -webkit-box-shadow: 10px 10px 42px -18px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 10px 10px 42px -18px rgba(0, 0, 0, 0.75);
+    box-shadow: 10px 10px 42px -18px rgba(0, 0, 0, 0.75);
     font-size: 20px;
-    width: 40%;
+    width: 100%;
     padding-top: .5em;
     padding-bottom: .5em;
     margin-bottom: 2em;
 }
 
-h1{
-
+h1 {
     font-family: 'Poppins', sans-serif;
 }
-.work-order-div{
+
+.work-order-div {
     padding: 5em 2em 0em 2em;
 }
-h5{
+
+h5, h3 {
     font-weight: bold;
     font-family: 'Poppins', sans-serif;
+}
+
+.row {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+}
+
+.header {
+    display: inline-flex;
+    padding: 1em;
+    background-color: #f3f4f7;
+    margin-top: 2em;
+    width: 100%;
+}
+
+.header h5 {
+    font-weight: normal !important;
+}
+
+.product {
+    display: inline-flex;
+    padding: 2em;
+    width: 100%;
+}
+
+table {
+    width: 100%;
+    font-family: 'Poppins', sans-serif;
+    margin-top: 2em;
+    margin-bottom: 2em;
+}
+
+th {
+    background-color: #54347c;
+    font-weight: bold;
+    color: #fff;
+}
+
+.total {
+    padding: .5em;
+    margin-bottom: 2em;
+    box-shadow: 0 5px 5px -3px rgba(0, 0, 0, .2), 0 8px 10px 1px rgba(0, 0, 0, .14), 0 3px 14px 2px rgba(0, 0, 0, .12);
 }

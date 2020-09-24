@@ -7,5 +7,13 @@ import { FactoryService } from './factory.service';
 })
 export class WorkOrderService extends FactoryService<WorkOrder> {
 
-  route= "workOrder"
+  route = "workOrder"
+
+  addProducts(products) {
+    return this.http.post(`/${this.route}/addProducts`, products, { responseType: 'text' })
+  }
+
+  getWordOrderItems(id) {
+    return this.http.get(`/${this.route}/` + id, { responseType: 'json' })
+  }
 }

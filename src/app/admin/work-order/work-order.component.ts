@@ -14,7 +14,11 @@ export class WorkOrderComponent implements OnInit {
 
   listOfWorkOrders: Array<WorkOrder> = [];
 
-  currentWorkOrder:WorkOrder;
+  total = 0;
+
+  listOfWorkOrderProducts: Array<any> = [];
+
+  currentWorkOrder: WorkOrder;
   hasCurrentWorkOrder = false;
 
   constructor(private dialog: MatDialog, private workOrderService: WorkOrderService) { }
@@ -22,52 +26,79 @@ export class WorkOrderComponent implements OnInit {
   async ngOnInit(): Promise<void> {
     this.getAllWorkOrders();
     this.getCurrentWorkOrder();
+    this.getWorkOrderWithProducts();
   }
 
   getAllWorkOrders() {
-    this.workOrderService.getAll().subscribe(resp => {
-      this.listOfWorkOrders = resp as Array<WorkOrder>
 
-      localStorage.setItem("workOrders",JSON.stringify(resp))
-    })
+      this.workOrderService.getAll().subscribe(resp => {
+        this.listOfWorkOrders = resp as Array<WorkOrder>
+        localStorage.setItem("workOrders", JSON.stringify(resp))
+      })
+    
   }
 
-  getCurrentWorkOrder(){
+  getWorkOrderWithProducts() {
+    if (this.currentWorkOrder !== undefined) {
+      this.workOrderService.getWordOrderItems(this.currentWorkOrder.id).subscribe(resp => {
+        this.listOfWorkOrderProducts = resp['listOfProduct'] as Array<any>
+
+        this.listOfWorkOrderProducts.forEach(product => {
+          this.total += product.total
+        })
+
+      })
+    }
+
+
+  }
+
+  getCurrentWorkOrder() {
     var date = new Date();
 
     this.listOfWorkOrders = JSON.parse(localStorage.getItem("workOrders"))
-    
-    
-    this.listOfWorkOrders.forEach(workOrder =>{
-      let workOrderDate = new Date(workOrder.date)
 
-      let dateSum = date.getDate() + date.getMonth() + date.getFullYear()
-      let workOrderDateSum = workOrderDate.getDate() + workOrderDate.getMonth() + workOrderDate.getFullYear()
-      
-      if(workOrderDateSum === dateSum){
-        this.currentWorkOrder = workOrder;
-        this.hasCurrentWorkOrder = true
-      }
 
-        
-    })
+      this.listOfWorkOrders.forEach(workOrder => {
+        let workOrderDate = new Date(workOrder.date)
+
+        let dateSum = date.getDate() + date.getMonth() + date.getFullYear()
+        let workOrderDateSum = workOrderDate.getDate() + workOrderDate.getMonth() + workOrderDate.getFullYear()
+
+        if (workOrderDateSum === dateSum) {
+          this.currentWorkOrder = workOrder;
+          this.hasCurrentWorkOrder = true
+        }
+
+
+      })
+    
   }
 
-  openAddItems(){
+  // Pazar
+
+  openAddItems() {
     const dialogRef = this.dialog.open(AddItemsDialogComponent, {
-      width: 'auto'
+      width: 'auto',
+      data: this.currentWorkOrder
     });
 
     dialogRef.afterClosed().subscribe(result => {
+      this.getWorkOrderWithProducts();
     });
   }
-  
+
   openAddWorkOrderDialog() {
     const dialogRef = this.dialog.open(AddWorkOrderDialogComponent, {
       width: 'auto'
     });
 
     dialogRef.afterClosed().subscribe(result => {
+      this.getAllWorkOrders();
+      this.getCurrentWorkOrder();
+      this.hasCurrentWorkOrder = true;
     });
   }
+
+  displayedColumns: string[] = ['title', 'price', 'amounts', 'total'];
 }

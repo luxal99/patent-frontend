@@ -13,7 +13,7 @@
     </form>
 
     <div *ngFor="let item of choosenList">
-       <div class="row">
+       <div class="row" style="margin-top: 2em;">
            <div class="col-sm">
             <h5>{{item.title}}</h5>
            </div>
@@ -30,7 +30,7 @@
        </div>
     </div>
     <div class="text-center">
-        <button class="add-btn" style="margin-top: 2em;border: 1px solid #54347c;background-color: #54347c;color: #fff;" (click)="update()">Dodaj</button>
+        <button class="add-btn" style="margin-top: 2em;border: 1px solid #54347c;background-color: #54347c;color: #fff;" (click)="pushWorkOrderList()">Dodaj</button>
             
     </div>
 </div>

@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { MatSnackBar, MAT_DIALOG_DATA } from '@angular/material';
 import { Product } from 'src/models/Product';
 import { ProductService } from 'src/service/product.service';
+import { WorkOrderService } from 'src/service/work-order.service';
 
 @Component({
   selector: 'app-add-items-dialog',
@@ -24,10 +26,12 @@ export class AddItemsDialogComponent implements OnInit {
   workOrderProductList: Array<Product> = []
 
 
-  constructor(private productService: ProductService) { }
+  constructor(private _snackBar: MatSnackBar,@Inject(MAT_DIALOG_DATA) public data: any,private productService: ProductService, private workOrderService: WorkOrderService) { }
 
   ngOnInit() {
     this.getAllProducts()
+    console.log(this.data);
+    
   }
 
   addToChoosenList(product) {
@@ -35,29 +39,38 @@ export class AddItemsDialogComponent implements OnInit {
   }
 
   addToWorkOrderList(product) {
-    var amountValue = this.amountForm.get("amount").value; 
-
+    var amountValue = this.amountForm.get("amount").value;
     let i = 0;
     while (i < amountValue) {
-
       this.workOrderProductList.push(product)
       i++;
     }
 
+    this.openSnackBar(`Dodato je ${amountValue} komada`,"DONE")
   }
 
-  update(){
-    console.log(this.workOrderProductList);
-    
+  pushWorkOrderList(){
+    const obj = {id:this.data.id,listOfProducts:this.workOrderProductList}
+    this.workOrderService.addProducts(obj).subscribe(resp=>{
+      console.log(resp);
+      
+    })
   }
+
   getAllProducts() {
     this.productService.getAll().subscribe(resp => {
       this.listOfProducts = resp as Array<Product>
     })
   }
 
-  search() {
 
+  openSnackBar(message: string, action: string) {
+    this._snackBar.open(message, action, {
+      duration: 2000,
+    });
+  }
+
+  search() {
     if (this.searchForm.get("search").value === '') {
       this.filteredTopic = [];
     } else {
@@ -70,5 +83,4 @@ export class AddItemsDialogComponent implements OnInit {
       })
     }
   }
-
 }
