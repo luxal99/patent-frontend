@@ -34,7 +34,6 @@ export class EditProductDialogComponent implements OnInit {
   constructor(@Inject(MAT_DIALOG_DATA) public data: any, private subCategoryService: SubCategoryService, private productService: ProductService, private manufacturerService: ManufacturerService) { }
 
   ngOnInit() {
-    console.log(this.data);
 
     this.setValue();
 
@@ -77,8 +76,6 @@ export class EditProductDialogComponent implements OnInit {
     product.code = this.editProductForm.get("code").value;
 
     this.productService.update(product).subscribe(resp => {
-      console.log(resp);
-
     })
   }
 }

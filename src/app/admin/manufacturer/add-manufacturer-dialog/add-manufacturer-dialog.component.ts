@@ -21,8 +21,7 @@ export class AddManufacturerDialogComponent implements OnInit {
 
   add(){
     this.manufacturerService.save(new Manufacturer(this.addManufacturerForm.get("title").value)).subscribe(resp=>{
-      console.log(resp);
-      
+   
     })
   }
 

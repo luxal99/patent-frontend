@@ -22,26 +22,10 @@ export class AddWorkOrderDialogComponent implements OnInit {
 
   add() {
 
-    // var date = new Date();
-    // var formDate = new Date();
-
-    // formDate = this.workOrderForm.get("date").value;
-
-    // var x = date.getDate() + date.getMonth() + date.getFullYear();
-    // var y = formDate.getDate() + formDate.getMonth() + formDate.getFullYear();
-
-
-    // if (x === y) {
-    //   console.log(true);
-    // } else {
-    //   console.log(false);
-    // }
 
     let workOrder = new WorkOrder(String(this.workOrderForm.get("date").value));
 
     this.workOrderService.save(workOrder).subscribe(resp => {
-      console.log(resp);
-
     })
   }
 

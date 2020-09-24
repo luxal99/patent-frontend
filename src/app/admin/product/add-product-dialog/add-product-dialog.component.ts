@@ -59,10 +59,7 @@ export class AddProductDialogComponent implements OnInit {
     product.idManufacturer = this.addProductForm.get("idManufacturer").value;
     product.code = this.addProductForm.get("code").value;
 
-    console.log(product);
-    
     this.productService.save(product).subscribe(resp=>{
-      console.log(resp);
       
     })
   }

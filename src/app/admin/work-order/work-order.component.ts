@@ -15,6 +15,7 @@ export class WorkOrderComponent implements OnInit {
   listOfWorkOrders: Array<WorkOrder> = [];
 
   currentWorkOrder:WorkOrder;
+  hasCurrentWorkOrder = false;
 
   constructor(private dialog: MatDialog, private workOrderService: WorkOrderService) { }
 
@@ -36,7 +37,6 @@ export class WorkOrderComponent implements OnInit {
 
     this.listOfWorkOrders = JSON.parse(localStorage.getItem("workOrders"))
     
-    console.log(this.listOfWorkOrders);
     
     this.listOfWorkOrders.forEach(workOrder =>{
       let workOrderDate = new Date(workOrder.date)
@@ -45,7 +45,8 @@ export class WorkOrderComponent implements OnInit {
       let workOrderDateSum = workOrderDate.getDate() + workOrderDate.getMonth() + workOrderDate.getFullYear()
       
       if(workOrderDateSum === dateSum){
-        this.currentWorkOrder = workOrder
+        this.currentWorkOrder = workOrder;
+        this.hasCurrentWorkOrder = true
       }
 
         

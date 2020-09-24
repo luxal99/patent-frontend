@@ -21,11 +21,8 @@ export class AddCategoryDialogComponent implements OnInit {
 
   add() {
     const category = new Category(this.addCategoryForm.get("title").value);
-    console.log(category);
-    
+  
     this.categoryService.save(category).subscribe(resp => {
-      console.log(resp);
-
     })
   }
 

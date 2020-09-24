@@ -1,1 +1,36 @@
-<p>add-items-dialog works!</p>
+<div class="product-div">
+    <form [formGroup]="searchForm">
+        <mat-form-field class="example-full-width">
+            <mat-label >Pretrazi</mat-label>
+
+            <input type="text" matInput [matAutocomplete]="auto" formControlName="search" (ngModelChange)="search()">
+            <mat-autocomplete #auto="matAutocomplete">
+                <mat-option *ngFor="let product of filteredTopic" (click)="addToChoosenList(product)" [value]="product.title" >
+                    {{product.title}}
+                </mat-option>
+            </mat-autocomplete>
+        </mat-form-field>
+    </form>
+
+    <div *ngFor="let item of choosenList">
+       <div class="row">
+           <div class="col-sm">
+            <h5>{{item.title}}</h5>
+           </div>
+           <div class="col-sm">
+              <form [formGroup]="amountForm">
+                <mat-form-field appearance="fill">
+                    <mat-label>Kolicina</mat-label>
+                    <input type="number" formControlName="amount" matInput >
+                  </mat-form-field>
+              </form>
+              <button class="add-btn" (click)="addToWorkOrderList(item)">Dodaj</button>
+            
+           </div>
+       </div>
+    </div>
+    <div class="text-center">
+        <button class="add-btn" style="margin-top: 2em;border: 1px solid #54347c;background-color: #54347c;color: #fff;" (click)="update()">Dodaj</button>
+            
+    </div>
+</div>
