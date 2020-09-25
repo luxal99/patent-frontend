@@ -27,7 +27,7 @@ export class LoginComponent implements OnInit {
       (new User(this.loginForm.get("username").value, this.loginForm.get("password").value)).subscribe(resp => {
         if (resp) {
           localStorage.setItem("token",resp)
-          this.router.navigate(['/admin'])
+          this.router.navigate(['/'])
 
         }
         

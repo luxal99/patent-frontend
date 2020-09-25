@@ -1,7 +1,7 @@
 export class Product {
     id;
     code;
-    title;
+    title:string;
     idSubCategory;
     price;
     amount;

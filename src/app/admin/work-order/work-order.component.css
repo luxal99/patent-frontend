@@ -17,8 +17,14 @@ h1 {
     font-family: 'Poppins', sans-serif;
 }
 
-.work-order-div {
+.work-order-div,.history-div {
     padding: 5em 2em 0em 2em;
+}
+
+.work-order-history {
+    padding: 1em;
+    background-color: #f3f4f7;
+    margin-top: 2em;
 }
 
 h5, h3 {

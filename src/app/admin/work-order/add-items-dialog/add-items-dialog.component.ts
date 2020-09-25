@@ -30,8 +30,6 @@ export class AddItemsDialogComponent implements OnInit {
 
   ngOnInit() {
     this.getAllProducts()
-    console.log(this.data);
-    
   }
 
   addToChoosenList(product) {
@@ -52,8 +50,6 @@ export class AddItemsDialogComponent implements OnInit {
   pushWorkOrderList(){
     const obj = {id:this.data.id,listOfProducts:this.workOrderProductList}
     this.workOrderService.addProducts(obj).subscribe(resp=>{
-      console.log(resp);
-      
     })
   }
 
@@ -75,7 +71,8 @@ export class AddItemsDialogComponent implements OnInit {
       this.filteredTopic = [];
     } else {
       this.listOfProducts.forEach(topic => {
-        if (topic.title.includes(this.searchForm.get("search").value)) {
+        
+        if (topic.title.toLowerCase().includes(this.searchForm.get("search").value)) {
           var index = this.filteredTopic.findIndex(x => x.title === topic.title)
           if (index < 0)
             this.filteredTopic.push(topic)

@@ -20,6 +20,9 @@ export class EditProductDialogComponent implements OnInit {
 
   listOfManufacturers: Array<Manufacturer> = []
 
+  selectedSubCategory;
+  selectedManufacturer;
+
 
 
   editProductForm = new FormGroup({
@@ -42,12 +45,15 @@ export class EditProductDialogComponent implements OnInit {
   }
 
   setValue() {
+    
     this.editProductForm.get("title").setValue(this.data.title);
     this.editProductForm.get("amount").setValue(this.data.amount);
     this.editProductForm.get("code").setValue(this.data.code);
-    this.editProductForm.get("idManufacturer").setValue(this.data.idManufacturer);
     this.editProductForm.get("price").setValue(this.data.price);
     this.editProductForm.get("title").setValue(this.data.title);
+
+    this.selectedSubCategory = this.data.idSubCategory
+    this.selectedManufacturer =this.data.idManufacturer 
 
   }
 

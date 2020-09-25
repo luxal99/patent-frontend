@@ -34,8 +34,8 @@
    <h5>Kategorija i brend</h5>
         <mat-form-field appearance="fill"> 
             <mat-label>Izaberi potkadtegoriju</mat-label>
-            <mat-select  formControlName="idSubCategory" >
-              <mat-option *ngFor="let subCategory of listOfSubCategories" [value]="subCategory">
+            <mat-select  formControlName="idSubCategory" [(ngModel)]="selectedSubCategory" >
+              <mat-option *ngFor="let subCategory of listOfSubCategories" [value]="selectedSubCategory">
                 {{subCategory.title}}
               </mat-option>
             </mat-select>
@@ -44,8 +44,8 @@
       <div>
           <mat-form-field appearance="fill"> 
               <mat-label>Izaberi proizvodjaca</mat-label>
-              <mat-select  formControlName="idManufacturer" >
-                <mat-option *ngFor="let manufacturer of listOfManufacturers" [value]="manufacturer">
+              <mat-select  formControlName="idManufacturer"  [(ngModel)]="selectedManufacturer">
+                <mat-option *ngFor="let manufacturer of listOfManufacturers" [value]="selectedManufacturer">
                   {{manufacturer.title}}
                 </mat-option>
               </mat-select>

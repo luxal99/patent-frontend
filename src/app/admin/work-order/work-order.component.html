@@ -71,5 +71,16 @@
             </div>
         </div>
     </div> </mat-tab>
-    <mat-tab label="Istorija"> Content 2 </mat-tab>
+    <mat-tab label="Istorija"> 
+    <div class="history-div">
+        <h3>Istororija radnih naloga</h3>
+
+        <div  *ngFor="let workOrder of listOfWorkOrders" (click)="openWorkOrderOverviewDialog(workOrder)" >
+           <div *ngIf="currentWorkOrder.id !== workOrder.id" class="work-order-history">
+            <h5>{{workOrder.date.slice(0,16)}}</h5>
+           </div>
+        </div>
+    </div>    
+    
+    </mat-tab>
   </mat-tab-group>

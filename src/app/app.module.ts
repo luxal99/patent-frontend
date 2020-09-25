@@ -22,6 +22,8 @@ import { EditProductDialogComponent } from './admin/product/edit-product-dialog/
 import { WorkOrderComponent } from './admin/work-order/work-order.component';
 import { AddWorkOrderDialogComponent } from './admin/work-order/add-work-order-dialog/add-work-order-dialog.component';
 import { AddItemsDialogComponent } from './admin/work-order/add-items-dialog/add-items-dialog.component';
+import { WorkOrderOverviewDialogComponent } from './admin/work-order/work-order-overview-dialog/work-order-overview-dialog.component';
+import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -39,7 +41,8 @@ import { AddItemsDialogComponent } from './admin/work-order/add-items-dialog/add
     EditProductDialogComponent,
     WorkOrderComponent,
     AddWorkOrderDialogComponent,
-    AddItemsDialogComponent
+    AddItemsDialogComponent,
+    WorkOrderOverviewDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -50,11 +53,13 @@ import { AddItemsDialogComponent } from './admin/work-order/add-items-dialog/add
     BrowserAnimationsModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [HttpClientModule,
+    {provide:LocationStrategy,useClass:HashLocationStrategy}
+  ],
   entryComponents:[AddProductDialogComponent,AddItemsDialogComponent,
     AddWorkOrderDialogComponent,WorkOrderComponent,EditProductDialogComponent,
     ProductMoreDialogComponent,CategoryComponent,AddManufacturerDialogComponent,
-    ProductComponent,ManufacturerComponent,AddCategoryDialogComponent,AddSubCategoryDialogComponent],
+    ProductComponent,WorkOrderOverviewDialogComponent,ManufacturerComponent,AddCategoryDialogComponent,AddSubCategoryDialogComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
