@@ -38,46 +38,42 @@ export class WorkOrderComponent implements OnInit {
   }
 
   getWorkOrderWithProducts() {
- setTimeout(() => {
-  this.total = 0;
-  if (this.currentWorkOrder !== undefined) {
-    this.workOrderService.getWordOrderItems(this.currentWorkOrder.id).subscribe(resp => {
-      this.listOfWorkOrderProducts = resp['listOfProduct'] as Array<any>
+    this.total = 0;
+    if (this.currentWorkOrder !== undefined) {
+      this.workOrderService.getWordOrderItems(this.currentWorkOrder.id).subscribe(resp => {
+        this.listOfWorkOrderProducts = resp['listOfProduct'] as Array<any>
 
-      this.listOfWorkOrderProducts.forEach(product => {
-        this.total += product.total
+        this.listOfWorkOrderProducts.forEach(product => {
+          this.total += product.total
+        })
+
       })
-
-    })
-  }
- }, 400);
+    }
 
 
   }
 
 
   getCurrentWorkOrder() {
-    setTimeout(() => {
-      var date = new Date();
+    var date = new Date();
 
-      this.listOfWorkOrders = JSON.parse(localStorage.getItem("workOrders"))
+    this.listOfWorkOrders = JSON.parse(localStorage.getItem("workOrders"))
 
-      if (this.listOfWorkOrders !== null) {
-        this.listOfWorkOrders.forEach(workOrder => {
-          let workOrderDate = new Date(workOrder.date)
+    if (this.listOfWorkOrders !== null) {
+      this.listOfWorkOrders.forEach(workOrder => {
+        let workOrderDate = new Date(workOrder.date)
 
-          let dateSum = date.getDate() + date.getMonth() + date.getFullYear()
-          let workOrderDateSum = workOrderDate.getDate() + workOrderDate.getMonth() + workOrderDate.getFullYear()
+        let dateSum = date.getDate() + date.getMonth() + date.getFullYear()
+        let workOrderDateSum = workOrderDate.getDate() + workOrderDate.getMonth() + workOrderDate.getFullYear()
 
-          if (workOrderDateSum === dateSum) {
-            this.currentWorkOrder = workOrder;
-            this.hasCurrentWorkOrder = true
-          }
+        if (workOrderDateSum === dateSum) {
+          this.currentWorkOrder = workOrder;
+          this.hasCurrentWorkOrder = true
+        }
 
 
-        })
-      }
-    }, 300);
+      })
+    }
 
   }
 
