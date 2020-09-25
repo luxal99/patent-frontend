@@ -1,4 +1,5 @@
 import { Component, Inject, OnInit } from '@angular/core';
+import { async } from '@angular/core/testing';
 import { MAT_DIALOG_DATA } from '@angular/material';
 import { WorkOrder } from 'src/models/WorkOrder';
 import { WorkOrderService } from 'src/service/work-order.service';
@@ -10,27 +11,21 @@ import { WorkOrderService } from 'src/service/work-order.service';
 })
 export class WorkOrderOverviewDialogComponent implements OnInit {
 
-  workOrder:WorkOrder = new WorkOrder();
-  listOfWorkOrderProducts:Array<any>=[]
+  date: string = ''
+  listOfWorkOrderProducts: Array<any> = []
 
-  constructor(@Inject(MAT_DIALOG_DATA) public data: any,private workOrderService:WorkOrderService) { }
+  constructor(@Inject(MAT_DIALOG_DATA) public data: any, private workOrderService: WorkOrderService) { }
 
   ngOnInit() {
     this.get();
   }
 
-  get(){
-    this.workOrderService.getWordOrderItems(this.data.id).subscribe(resp=>{
+  get() {
+    this.workOrderService.getWordOrderItems(this.data.id).subscribe(resp => {
       this.listOfWorkOrderProducts = resp['listOfProduct'] as Array<any>
-      localStorage.setItem("date",resp['date'])
-      
+      this.date = resp['date']
     })
 
-    this.workOrder.date = localStorage.getItem("date")
-    
   }
-
   displayedColumns: string[] = ['title', 'price', 'amounts', 'total'];
-
-
 }
